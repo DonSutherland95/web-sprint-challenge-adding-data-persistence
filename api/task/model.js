@@ -20,7 +20,7 @@ const db = require('../../data/dbConfig')
 module.exports = {
   getAll() {
     return db("tasks as t")
-      .join("projects as p", "t.project_id", "p.id")
+      .join("projects as p", "p.id", "t.project_id")
       .select(
         "t.*",
         "p.name as project_name",

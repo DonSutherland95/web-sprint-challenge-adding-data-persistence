@@ -152,12 +152,12 @@ exports.up = function (knex) {
     })
     .createTable("resources", (table) => {
       table.increments();
-      table
-        .bigInteger("resourceID")
-        .unsigned()
-        .index()
-        .references("id")
-        .inTable("projects");
+      // table
+      //   .bigInteger("resourceID")
+      //   .unsigned()
+      //   .index()
+      //   .references("id")
+      //   .inTable("projects");
       table.text("name").unique();
       table.text("description");
     })
@@ -173,21 +173,21 @@ exports.up = function (knex) {
       table.text("notes");
       table.boolean("completed").defaultTo(false);
     })
-    .createTable("resourcesAndProjects", (table) => {
-      table.increments();
-      table
-        .bigInteger("resourceID")
-        .unsigned()
-        .index()
-        .references("id")
-        .inTable("resources");
-      table
-        .bigInteger("projectID")
-        .unsigned()
-        .index()
-        .references("id")
-        .inTable("projects");
-    });
+    // .createTable("resourcesAndProjects", (table) => {
+    //   table.increments();
+    //   table
+    //     .bigInteger("resourceID")
+    //     .unsigned()
+    //     .index()
+    //     .references("id")
+    //     .inTable("resources");
+    //   table
+    //     .bigInteger("projectID")
+    //     .unsigned()
+    //     .index()
+    //     .references("id")
+    //     .inTable("projects");
+    // });
 };
 
 exports.down = function (knex) {

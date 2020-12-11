@@ -1,6 +1,6 @@
 // build your `/api/tasks` router here
 const express = require('express')
-const Task = require('./model')
+// const Task = require('./model')
 const router = express.Router();
 
 // router.get('/', (req, res)=>{
@@ -73,7 +73,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/",  (req, res) => {
+router.post("/", (req, res) => {
   Model.create(req.body)
     .then((data) => {
       return Model.getById(data);
