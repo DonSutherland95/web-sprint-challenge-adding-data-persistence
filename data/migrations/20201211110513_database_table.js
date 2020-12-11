@@ -164,15 +164,28 @@ exports.up = function (knex) {
     .createTable("tasks", (table) => {
       table.increments();
       table
-        .bigInteger("project_id")
+        .integer("project_id")
         .unsigned()
-        .index()
         .references("id")
-        .inTable("projects");
+        .inTable("projects")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       table.text("description").notNullable();
       table.text("notes");
       table.boolean("completed").defaultTo(false);
-    })
+    });
+    // .createTable("tasks", (table) => {
+    //   table.increments();
+    //   table
+    //     .bigInteger("project_id")
+    //     .unsigned()
+    //     .index()
+    //     .references("id")
+    //     .inTable("projects");
+    //   table.text("description").notNullable();
+    //   table.text("notes");
+    //   table.boolean("completed").defaultTo(false);
+    // })
     // .createTable("resourcesAndProjects", (table) => {
     //   table.increments();
     //   table
