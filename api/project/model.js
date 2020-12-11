@@ -21,14 +21,4 @@ function getById(id){
   .where("id", id).first();
 }
 
-// module.exports = {
-//   getAll() {
-//     return db("projects");
-//   },
-//   getById(id) {
-//     return db("projects").where("id", id).first();
-//   },
-//   create(data) {
-//     return db("projects").insert(data);
-//   },
-// };
+
