@@ -29,20 +29,33 @@ router.get('/', (req, res)=>{
 //     }
     
 // })
-router.post('/',(req, res)=>{
+// router.post('/',(req, res)=>{
     
-        Resource.addResource(req.body)
-            .then(resource=>{
-                return Resource.getById(resource)
-            })
-            .then(resource=>{
-                res.status(201).json(resource)
-            })
-            .catch(error=>{
-                res.status(500).json({errorMessage: error.message})
-            })
+//         Resource.addResource(req.body)
+//             .then(resource=>{
+//                 return Resource.getById(resource)
+//             })
+//             .then(resource=>{
+//                 res.status(201).json(resource)
+//             })
+//             .catch(error=>{
+//                 res.status(500).json({errorMessage: error.message})
+//             })
     
     
-})
+// })
+const Model = require("./model");
+router.post("/", (req, res) => {
+  Model.create(req.body)
+    .then((data) => {
+      return Model.getById(data);
+    })
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err.message);
+    });
+});
 
 module.exports = router;
