@@ -3,24 +3,24 @@ const express = require('express')
 
 const router = express.Router();
 
-const Model = require("./model");
+const Resource = require("./model");
 
 router.get("/", (req, res) => {
-  Model.getAll().then((data) => {
+  Resource.getAll().then((data) => {
     res.status(200).json(data);
   });
 });
 
 router.post("/", (req, res) => {
-  Model.create(req.body)
+  Resource.create(req.body)
     .then((data) => {
-      return Model.getById(data);
+      return Resource.getById(data);
     })
     .then((data) => {
       res.status(200).json(data);
     })
-    .catch((err) => {
-      res.status(400).json(err.message);
+    .catch((error) => {
+      res.status(400).json(error.message);
     });
 });
 

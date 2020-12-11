@@ -3,9 +3,9 @@ const db = require('../../data/dbConfig')
 
 
 module.exports = {
-   getAll,
-   getById,
-   create
+  getAll,
+  getById,
+  create
 };
 
 function getAll() {
@@ -14,7 +14,7 @@ function getAll() {
  function getById(id) {
     return db("resources").where("id", id).first();
   }
-  function create(data) {
+  function create(resource) {
     return db("resources")
-    .insert(data);
+    .insert(resource);
   }
