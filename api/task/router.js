@@ -15,10 +15,22 @@ router.get('/', (req, res)=>{
             res.status(500).json(err.message)
         })
 })
+// router.post('/',(req, res)=>{
+//     if(!req.body.description || !req.body.completed){
+//         res.status(400).json({message: `Please fill out description and completed fields`})
+//     } else {
+//         Task.addTask(req.body)
+//             .then(task=>{
+//                 res.status(201).json(task)
+//             })
+//             .catch(error=>{
+//                 res.status(500).json({errorMessage: error.message})
+//             })
+//     }
+    
+// })
 router.post('/',(req, res)=>{
-    if(!req.body.description || !req.body.completed){
-        res.status(400).json({message: `Please fill out description and completed fields`})
-    } else {
+    
         Task.addTask(req.body)
             .then(task=>{
                 res.status(201).json(task)
@@ -26,8 +38,7 @@ router.post('/',(req, res)=>{
             .catch(error=>{
                 res.status(500).json({errorMessage: error.message})
             })
-    }
+    
     
 })
-
 module.exports = router;

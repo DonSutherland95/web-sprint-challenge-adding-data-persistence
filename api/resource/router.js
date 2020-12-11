@@ -15,10 +15,22 @@ router.get('/', (req, res)=>{
         })
 })
 
+// router.post('/',(req, res)=>{
+//     if(!req.body.name){
+//         res.status(400).json({message: `Please fill out name fields`})
+//     } else {
+//         Resource.addResource(req.body)
+//             .then(resource=>{
+//                 res.status(201).json(resource)
+//             })
+//             .catch(error=>{
+//                 res.status(500).json({errorMessage: error.message})
+//             })
+//     }
+    
+// })
 router.post('/',(req, res)=>{
-    if(!req.body.name){
-        res.status(400).json({message: `Please fill out name fields`})
-    } else {
+    
         Resource.addResource(req.body)
             .then(resource=>{
                 res.status(201).json(resource)
@@ -26,7 +38,7 @@ router.post('/',(req, res)=>{
             .catch(error=>{
                 res.status(500).json({errorMessage: error.message})
             })
-    }
+    
     
 })
 
