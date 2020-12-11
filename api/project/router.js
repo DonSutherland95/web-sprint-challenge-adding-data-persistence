@@ -7,9 +7,9 @@ router.get('/', (req, res)=>{
     Project.findProjects()
         .then(projects=>{
             
-            // projects.map(project=>{
-            //     project.completed === 0 ? project.completed = false : project.completed = true 
-            // })
+            projects.map(project=>{
+                project.completed === 0 ? project.completed = false : project.completed = true 
+            })
             res.status(200).json(projects)
         })
         .catch(err=>{
