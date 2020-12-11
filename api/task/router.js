@@ -6,9 +6,9 @@ const router = express.Router();
 router.get('/', (req, res)=>{
     Task.findTasks()
         .then(tasks=>{
-            tasks.map(task=>{
-                task.completed === 0 ? task.completed = false : task.completed = true 
-            })
+            // tasks.map(task=>{
+            //     task.completed === 0 ? task.completed = false : task.completed = true 
+            // })
             res.status(200).json(tasks)
         })
         .catch(err=>{
