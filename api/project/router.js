@@ -3,6 +3,7 @@ const express = require('express')
 const Project = require('./model')
 const router = express.Router();
 
+
 router.get('/', (req, res)=>{
     Project.findProjects()
         .then(projects=>{
@@ -16,7 +17,11 @@ router.get('/', (req, res)=>{
             res.status(500).json(err.message)
         })
 })
+
 router.post('/',(req, res)=>{
+    // if(!req.body.name){
+    //     res.status(400).json({message: `Please fill out name and completed fields`})
+    // } else {
         Project.addProject(req.body)
              .then((data) => {
                         return Project.getById(data);
@@ -42,6 +47,10 @@ router.post('/',(req, res)=>{
             .catch(error=>{
                 res.status(500).json({errorMessage: error.message})
             })
+    
+    
 })
+
+
 
 module.exports = router;
