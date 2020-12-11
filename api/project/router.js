@@ -62,7 +62,7 @@ router.post('/',(req, res)=>{
               .then((data) => {
                     if (data["completed"] === 0) 
                     {
-                        res.status(200).json({
+                        res.status(201).json({
                         id: data.id,
                         name: data.name,
                         description: data.description,

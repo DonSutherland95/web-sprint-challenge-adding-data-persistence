@@ -33,6 +33,9 @@ router.post('/',(req, res)=>{
     
         Resource.addResource(req.body)
             .then(resource=>{
+                return Resource.getById(resource)
+            })
+            .then(resource=>{
                 res.status(201).json(resource)
             })
             .catch(error=>{

@@ -3,7 +3,8 @@ const db = require('../../data/dbConfig')
 
 module.exports = {
    findResources,
-   addResource
+   addResource,
+   getById
 }
 
 function findResources(){
@@ -12,4 +13,8 @@ function findResources(){
 function addResource(resource){
     return db('resources')
         .insert(resource)
+}
+function getById(data){
+    return db("resources")
+        .where('id', id).first()
 }
