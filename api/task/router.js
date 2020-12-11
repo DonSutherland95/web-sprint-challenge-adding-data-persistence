@@ -41,6 +41,7 @@ const router = express.Router();
     
     
 // })
+
 const Model = require("./model");
 router.get("/", (req, res) => {
   const toReturn = [];
@@ -49,7 +50,8 @@ router.get("/", (req, res) => {
       if (data[i].completed === 1) {
         toReturn.push({
           id: data[i].id,
-          project_id: data[i].project_id,
+          // project_id: data[i].project_id,
+          projectID: data[i].projectID,
           description: data[i].description,
           notes: data[i].notes,
           completed: true,
@@ -59,7 +61,8 @@ router.get("/", (req, res) => {
       } else {
         toReturn.push({
           id: data[i].id,
-          project_id: data[i].project_id,
+          // project_id: data[i].project_id,
+          projectID: data[i].projectID,
           description: data[i].description,
           notes: data[i].notes,
           completed: false,
