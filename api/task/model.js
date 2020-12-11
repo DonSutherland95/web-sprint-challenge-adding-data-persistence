@@ -9,7 +9,7 @@ module.exports = {
 function findTasks(){
     return db('tasks as t')
         .join('projects as p', 't.project_id', 'p.id')
-        .select('p.name as product_name', 'p.description as product_description', 't.description as task_description','t.notes as task_notes','t.completed')
+        .select('p.name as product_name', 'p.description as product_description'/*, 't.description as task_description','t.notes as task_notes','t.completed'*/)
 }
 
 function addTask(task){
