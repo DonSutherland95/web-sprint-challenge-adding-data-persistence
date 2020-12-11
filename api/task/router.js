@@ -3,11 +3,11 @@ const express = require('express')
 
 const router = express.Router();
 
-const Model = require("./model");
+const Tasks = require("./model");
 router.get("/", (req, res) => {
   const toReturn = [];
 
-  Model.getAll().then((data) => {
+  Tasks.getAll().then((data) => {
     for (let i in data) {
       if (data[i].completed === 1) {
         toReturn.push({
@@ -37,12 +37,12 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Model.create(req.body)
+  Tasks.create(req.body)
     .then((data) => {
       return Model.getById(data);
     })
     .then((data) => {
-      Model.getById(data);
+      Tasks.getById(data);
       if (data.completed === 1) {
         res.status(200).json({
           id: data.id,
