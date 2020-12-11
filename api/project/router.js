@@ -46,9 +46,9 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/',(req, res)=>{
-    if(!req.body.name || !req.body.completed){
-        res.status(400).json({message: `Please fill out name and completed fields`})
-    } else {
+    // if(!req.body.name){
+    //     res.status(400).json({message: `Please fill out name and completed fields`})
+    // } else {
         Project.addProject(req.body)
             .then(projects=>{
                 projects.map(project=>{
