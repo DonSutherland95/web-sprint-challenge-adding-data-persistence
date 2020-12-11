@@ -18,3 +18,16 @@ function getById(data){
     return db("resources")
         .where('id', id).first()
 }
+
+
+// module.exports = {
+//   getAll() {
+//     return db("resources");
+//   },
+//   getById(id) {
+//     return db("resources").where("id", id).first();
+//   },
+//   create(data) {
+//     return db("resources").insert(data);
+//   },
+// };

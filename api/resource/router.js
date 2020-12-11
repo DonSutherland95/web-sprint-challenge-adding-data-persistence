@@ -15,20 +15,20 @@ router.get('/', (req, res)=>{
         })
 })
 
-// router.post('/',(req, res)=>{
-//     if(!req.body.name){
-//         res.status(400).json({message: `Please fill out name fields`})
-//     } else {
-//         Resource.addResource(req.body)
-//             .then(resource=>{
-//                 res.status(201).json(resource)
-//             })
-//             .catch(error=>{
-//                 res.status(500).json({errorMessage: error.message})
-//             })
-//     }
+router.post('/',(req, res)=>{
+    if(!req.body.name){
+        res.status(400).json({message: `Please fill out name fields`})
+    } else {
+        Resource.addResource(req.body)
+            .then(resource=>{
+                res.status(201).json(resource)
+            })
+            .catch(error=>{
+                res.status(500).json({errorMessage: error.message})
+            })
+    }
     
-// })
+})
 // router.post('/',(req, res)=>{
     
 //         Resource.addResource(req.body)
@@ -44,18 +44,18 @@ router.get('/', (req, res)=>{
     
     
 // })
-const Model = require("./model");
-router.post("/", (req, res) => {
-  Model.create(req.body)
-    .then((data) => {
-      return Model.getById(data);
-    })
-    .then((data) => {
-      res.status(200).json(data);
-    })
-    .catch((err) => {
-      res.status(400).json(err.message);
-    });
-});
+// const Model = require("./model");
+// router.post("/", (req, res) => {
+//   Model.create(req.body)
+//     .then((data) => {
+//       return Model.getById(data);
+//     })
+//     .then((data) => {
+//       res.status(200).json(data);
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err.message);
+//     });
+// });
 
 module.exports = router;
