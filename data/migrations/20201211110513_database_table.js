@@ -2,13 +2,13 @@
 exports.up = function(knex) {
   return knex.schema 
     .createTable('projects', table=>{
-        table.increments('id')
+        table.increments('id').unique()
         table.string('name', 128).notNullable()
         table.string('description',128)
         table.boolean('completed').defaultTo(false).notNullable()
     })
     .createTable('resources', table=>{
-        table.increments()
+        table.increments('id').unique()
         table.string('name', 128).notNullable().unique()
         table.string('description',128)
         table.integer('project_id')
@@ -17,7 +17,7 @@ exports.up = function(knex) {
             .onDelete('RESTRICT').onUpdate('RESTRICT')
     })
     .createTable('tasks', table=>{
-        table.increments()
+        table.increments('id').unique()
         table.string('description',128).notNullable()
         table.string('notes', 128)
         table.boolean('completed').defaultTo(false).notNullable()
