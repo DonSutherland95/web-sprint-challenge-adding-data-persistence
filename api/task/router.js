@@ -50,8 +50,7 @@ router.get("/", (req, res) => {
       if (data[i].completed === 1) {
         toReturn.push({
           id: data[i].id,
-          // project_id: data[i].project_id,
-          projectID: data[i].projectID,
+          project_id: data[i].project_id,
           description: data[i].description,
           notes: data[i].notes,
           completed: true,
@@ -61,8 +60,7 @@ router.get("/", (req, res) => {
       } else {
         toReturn.push({
           id: data[i].id,
-          // project_id: data[i].project_id,
-          projectID: data[i].projectID,
+          project_id: data[i].project_id,
           description: data[i].description,
           notes: data[i].notes,
           completed: false,
@@ -75,7 +73,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
+router.post("/",  (req, res) => {
   Model.create(req.body)
     .then((data) => {
       return Model.getById(data);
