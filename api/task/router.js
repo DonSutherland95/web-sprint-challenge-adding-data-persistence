@@ -45,9 +45,7 @@ const router = express.Router();
 const Model = require("./model");
 router.get("/", (req, res) => {
   const toReturn = [];
-  if(!req.body.project_id){
-        res.status(400).json({message: `Please fill out description and completed fields`})
-    } else {
+  
 
   Model.getAll().then((data) => {
     for (let i in data) {
@@ -75,7 +73,7 @@ router.get("/", (req, res) => {
     }
     res.status(200).json(toReturn);
    });
-  }
+  
 });
 
 router.post("/", (req, res) => {
