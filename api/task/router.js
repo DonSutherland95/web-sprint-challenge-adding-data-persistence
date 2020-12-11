@@ -48,38 +48,38 @@ router.get("/", (req, res) => {
 //   });
 // });
 
-// router.post("/", (req, res) => {
-//   Model.create(req.body)
-//     .then((data) => {
-//       return Model.getById(data);
-//     })
-//     .then((data) => {
-//       Model.getById(data);
-//       if (data.completed === 1) {
-//         res.status(200).json({
-//           id: data.id,
-//           project_id: data.project_id,
-//           description: data.description,
-//           notes: data.notes,
-//           completed: true,
-//           project_name: data.project_name,
-//           project_description: data.project_description,
-//         });
-//       } else {
-//         res.status(200).json({
-//           id: data.id,
-//           project_id: data.project_id,
-//           description: data.description,
-//           notes: data.notes,
-//           completed: false,
-//           project_name: data.project_name,
-//           project_description: data.project_description,
-//         });
-//       }
-//     })
-//     .catch((err) => {
-//       res.status(400).json(err.message);
-//     });
-// });
+router.post("/", (req, res) => {
+  Model.create(req.body)
+    .then((data) => {
+      return Model.getById(data);
+    })
+    .then((data) => {
+      Model.getById(data);
+      if (data.completed === 1) {
+        res.status(200).json({
+          id: data.id,
+          project_id: data.project_id,
+          description: data.description,
+          notes: data.notes,
+          completed: true,
+          project_name: data.project_name,
+          project_description: data.project_description,
+        });
+      } else {
+        res.status(200).json({
+          id: data.id,
+          project_id: data.project_id,
+          description: data.description,
+          notes: data.notes,
+          completed: false,
+          project_name: data.project_name,
+          project_description: data.project_description,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json(err.message);
+    });
+});
 
 module.exports = router;
