@@ -10,7 +10,7 @@ router.get('/', (req, res)=>{
             projects.map(project=>{
                 project.completed === 0 ? project.completed = false : project.completed = true 
             })
-            res.status(200).json(project)
+            res.status(200).json(projects)
         })
         .catch(err=>{
             res.status(500).json(err.message)
